@@ -13,20 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        // 1. Create an array to store the multiples
+        // 1. Create a new double array with a size equal to length parameter
         double[] multiplesArray = new double[length];
 
-        // 2. Create a loop from the length
+        // 2. Create a loop that counts from 1 to the value passed on length
         for (var i = 1; i <= length; i++)
         {
-            // 3. Multiply the number by the loop cycle
+            // 3. Multiply the number by the current loop assigned variable
             double multiple = number * i;
 
-            // 4. Add the result to the array by subtracting 1 to the loop cycle
+            // 4. Add the result to the array. Because index starts at 0, subtract 1 to the loop variable to use it as the array index
             multiplesArray[i - 1] = multiple;
         }
-        // 5. Return the array
 
+        // 5. Return the new multiples array
         return multiplesArray; // replace this return statement with your own
     }
 
@@ -44,13 +44,13 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        // 1. Get the range to move at the beginning of the list
+        // 1. Get the range from the end of the list by the amount passed to the function
         List<int> range = data.GetRange(data.Count - amount, amount);
 
-        // 2. Remove the range from the original list
+        // 2. Remove the range from the end of the original list by the amount passed to the function
         data.RemoveRange(data.Count - amount, amount);
 
-        // 3. Add the range at the beginning of the list
+        // 3. Add the new created range list at the beginning of the passed list
         data.InsertRange(0, range);
     }
 }
