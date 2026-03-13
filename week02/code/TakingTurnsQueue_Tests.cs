@@ -11,7 +11,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3) and
     // run until the queue is empty
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: The people is inserted at the front of the queue instead of the back
+    // Defect(s) Found: The people is inserted at the front of the queue at index 0 instead of the back
     public void TestTakingTurnsQueue_FiniteRepetition()
     {
         var bob = new Person("Bob", 2);
@@ -85,7 +85,8 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (Forever), Sue (3)
     // Run 10 times.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: A Person with Forever turns is not being enqueued after being dequeued
+    // Defect(s) Found: A Person with Forever turns is not being enqueued after being dequeued,
+    // the condition to enqueue again should contain also person with Forever turns
     public void TestTakingTurnsQueue_ForeverZero()
     {
         var timTurns = 0;
