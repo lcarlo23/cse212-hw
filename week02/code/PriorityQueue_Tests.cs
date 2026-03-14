@@ -46,7 +46,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: The item with highest priority and first in queue is being dequeued first
     // Expected Result: Tim
-    // Defect(s) Found: The dequeue function returns last item added even if it has the same priority of another added first, the comparison should check only if there are higher priority items
+    // Defect(s) Found: The dequeue function returns last item added even if it has the same priority of another added first, the comparison should check only if there are higher priority items, also the item dequeued is not being removed from the queue
     public void TestPriorityQueue_3()
     {
         var priorityQueue = new PriorityQueue();
@@ -55,11 +55,11 @@ public class PriorityQueueTests
         priorityQueue.Enqueue("Tim", 3);
         priorityQueue.Enqueue("Sue", 3);
 
-        var dequeuedItem = priorityQueue.Dequeue();
+        priorityQueue.Dequeue();
 
-        string expectedItem = "Tim";
+        var expectedString = "[Bob (Pri:2), Sue (Pri:3)]";
 
-        Assert.AreEqual(expectedItem, dequeuedItem);
+        Assert.AreEqual(expectedString, priorityQueue.ToString());
     }
 
     [TestMethod]
