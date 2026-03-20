@@ -36,7 +36,6 @@ public static class SetsAndMaps
             {
                 wordSet.Add(word);
             }
-
         }
 
         return pairs.ToArray();
@@ -59,7 +58,16 @@ public static class SetsAndMaps
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
-            // TODO Problem 2 - ADD YOUR CODE HERE
+            var key = fields[3];
+
+            if (degrees.ContainsKey(key))
+            {
+                degrees[key] += 1;
+            }
+            else
+            {
+                degrees[key] = 1;
+            }
         }
 
         return degrees;
